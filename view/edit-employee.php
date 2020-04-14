@@ -1,7 +1,7 @@
 <?php
 $index = $_REQUEST['index'];
 include '../class/EmployeeManager.php';
-$employeeManager = new EmployeeManager('dataEmployee.json');
+$employeeManager = new EmployeeManager('../dataEmployee.json');
 ?>
 <!doctype html>
 <html>
