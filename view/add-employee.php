@@ -8,7 +8,7 @@
     <title>Document</title>
 </head>
 <body>
-<form action="create.php" method="post" enctype="multipart/form-data">
+<form action="../action/create.php" method="post" enctype="multipart/form-data">
     <label>Avatar: <input type="file" name="avatar"></label>
     <label>First Name: <input type="text" name="firstName"></label>
     <label>Last Name: <input type="text" name="lastName"></label>

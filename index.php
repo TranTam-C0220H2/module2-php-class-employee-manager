@@ -1,5 +1,5 @@
 <?php
-include 'EmployeeManager.php';
+include 'class/EmployeeManager.php';
 $employeeManager = new EmployeeManager('dataEmployee.json');
 ?>
 <!doctype html>
@@ -12,8 +12,8 @@ $employeeManager = new EmployeeManager('dataEmployee.json');
     <title>Document</title>
 </head>
 <body>
-<a href="add-employee.php">Add</a><br>
-<form action="search-employee.php" method="get">
+<a href="view/add-employee.php">Add</a><br>
+<form action="view/search-employee.php" method="get">
 <input type="text" name="keyWord">
     <input type="submit" value="Search">
 </form>
@@ -38,8 +38,8 @@ $employeeManager = new EmployeeManager('dataEmployee.json');
         <td><?php echo $item->birthDay ?></td>
         <td><?php echo $item->address ?></td>
         <td><?php echo $item->jobPosition ?></td>
-        <td><a href="group-employee.php?group=<?php echo $item->group?>"><?php echo $item->group?></a> </td>
-        <td><a href="edit-employee.php?index=<?php echo $index ?>">Edit</a> <a onclick="return confirm('Delete ?')" href="delete-employee.php?index=<?php echo $index ?>">Delete</a></td>
+        <td><a href="view/group-employee.php?group=<?php echo $item->group?>"><?php echo $item->group?></a> </td>
+        <td><a href="view/edit-employee.php?index=<?php echo $index ?>">Edit</a> <a onclick="return confirm('Delete ?')" href="action/delete-employee.php?index=<?php echo $index ?>">Delete</a></td>
     </tr>
     <?php endforeach;?>
 </table>

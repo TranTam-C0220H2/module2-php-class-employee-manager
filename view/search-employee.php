@@ -1,7 +1,7 @@
 <?php
 $keyWord = $_GET['keyWord'];
-include 'EmployeeManager.php';
-$employeeManager = new EmployeeManager('dataEmployee.json');
+include '../class/EmployeeManager.php';
+$employeeManager = new EmployeeManager('../dataEmployee.json');
 ?>
 <!doctype html>
 <html>
@@ -16,6 +16,7 @@ $employeeManager = new EmployeeManager('dataEmployee.json');
 <table border="1">
     <tr>
         <th>STT</th>
+        <th>Avatar</th>
         <th>First Name</th>
         <th>Last Name</th>
         <th>Birth Day Name</th>
@@ -27,13 +28,14 @@ $employeeManager = new EmployeeManager('dataEmployee.json');
     <?php foreach ($employeeManager->searchValueEmployeeByKeyWord($keyWord) as $index => $item):  ?>
         <tr>
             <td><?php echo $employeeManager->searchIndexEmployeeByKeyWord($keyWord)[$index]+1 ?></td>
+            <td><img width="100" height="140" src="../upload/<?php echo $item->avatar ?>"></td>
             <td><?php echo $item->firstName ?></td>
             <td><?php echo $item->lastName ?></td>
             <td><?php echo $item->birthDay ?></td>
             <td><?php echo $item->address ?></td>
             <td><?php echo $item->jobPosition ?></td>
             <td><?php echo $item->group ?></td>
-            <td><a href="edit-employee.php?index=<?php echo $employeeManager->searchIndexEmployeeByKeyWord($keyWord)[$index] ?>">Edit</a> <a onclick="return confirm('Delete ?')" href="delete-employee.php?index=<?php echo $employeeManager->searchIndexEmployeeByKeyWord($keyWord)[$index] ?>">Delete</a></td>
+            <td><a href="edit-employee.php?index=<?php echo $employeeManager->searchIndexEmployeeByKeyWord($keyWord)[$index] ?>">Edit</a> <a onclick="return confirm('Delete ?')" href="../action/delete-employee.php?index=<?php echo $employeeManager->searchIndexEmployeeByKeyWord($keyWord)[$index] ?>">Delete</a></td>
         </tr>
     <?php endforeach;?>
 </table>

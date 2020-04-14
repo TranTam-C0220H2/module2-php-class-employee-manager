@@ -1,6 +1,6 @@
 <?php
 $index = $_REQUEST['index'];
-include 'EmployeeManager.php';
+include '../class/EmployeeManager.php';
 $employeeManager = new EmployeeManager('dataEmployee.json');
 ?>
 <!doctype html>
@@ -13,7 +13,7 @@ $employeeManager = new EmployeeManager('dataEmployee.json');
     <title>Document</title>
 </head>
 <body>
-<form action="edit.php?index=<?php echo $index ?>" method="post" enctype="multipart/form-data">
+<form action="../action/edit.php?index=<?php echo $index ?>" method="post" enctype="multipart/form-data">
     <label>Avatar: <input type="file" name="avatar"></label>
     <label>First Name: <input type="text" name="firstName" value="<?php echo $employeeManager->getElementArrayDataEmployByIndex($index)->firstName ?>"></label>
     <label>Last Name: <input type="text" name="lastName" value="<?php echo $employeeManager->getElementArrayDataEmployByIndex($index)->lastName ?>"></label>
